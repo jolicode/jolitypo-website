@@ -115,6 +115,16 @@ if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers
         </div>
     </div>
 
+    <?php if (!empty($fixedContent)): ?>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Diff</h2>
+
+                <pre id="diff"></pre>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <hr>
 
     <footer>
@@ -125,7 +135,26 @@ if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers
 
 <script src="js/vendor/highlight.pack.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/vendor/diff.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+<script>
+    var one = <?php echo json_encode($toFixContent, JSON_UNESCAPED_UNICODE); ?>;
+    var other = <?php echo json_encode($fixedContent, JSON_UNESCAPED_UNICODE); ?>;
+
+    var diff = JsDiff.diffChars(one, other);
+    var display = document.getElementById('diff')
+
+    diff.forEach(function(part){
+        // green for additions, red for deletions
+        // grey for common parts
+        var color = part.added ? 'green' :
+            part.removed ? 'red' : 'black';
+        var span = document.createElement('span');
+        span.style.color = color;
+        span.appendChild(document.createTextNode(part.value));
+        display.appendChild(span);
+    });
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
