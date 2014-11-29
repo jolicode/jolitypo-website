@@ -1,0 +1,12 @@
+{
+    "name": "damienalexandre/jolitypo-website",
+    "require": {
+        "jolicode/jolitypo": "~0.1"
+    },
+    "authors": [
+        {
+            "name": "Damien Alexandre",
+            "email": "dalexandre@jolicode.com"
+        }
+    ]
+}

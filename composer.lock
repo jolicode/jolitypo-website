@@ -1,0 +1,116 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "32b6216fd1ee59c07a62ebf559ec6fe0",
+    "packages": [
+        {
+            "name": "jolicode/jolitypo",
+            "version": "v0.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jolicode/JoliTypo.git",
+                "reference": "8539ddb6a9bf0ca710d033a29d1030bbc423fb76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/8539ddb6a9bf0ca710d033a29d1030bbc423fb76",
+                "reference": "8539ddb6a9bf0ca710d033a29d1030bbc423fb76",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "lib-libxml": "*",
+                "org_heigl/hyphenator": "~2.0.3",
+                "php": ">=5.3.0"
+            },
+            "conflict": {
+                "ext-apc": "3.1.11"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "JoliTypo": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Damien Alexandre",
+                    "email": "dalexandre@jolicode.com",
+                    "homepage": "http://damienalexandre.fr/"
+                }
+            ],
+            "description": "Microtypography fixer for the web.",
+            "homepage": "https://github.com/jolicode/JoliTypo",
+            "keywords": [
+                "ellipsis",
+                "fixer",
+                "quote",
+                "smartquote",
+                "typography"
+            ],
+            "time": "2014-06-17 13:08:26"
+        },
+        {
+            "name": "org_heigl/hyphenator",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heiglandreas/Org_Heigl_Hyphenator.git",
+                "reference": "1ea68a85e67f87c4dab48d6771989248ca0cfd15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heiglandreas/Org_Heigl_Hyphenator/zipball/1ea68a85e67f87c4dab48d6771989248ca0cfd15",
+                "reference": "1ea68a85e67f87c4dab48d6771989248ca0cfd15",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Org\\Heigl\\Hyphenator": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Heigl",
+                    "email": "andreas@heigl.org",
+                    "homepage": "http://andreas.heigl.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Word-Hyphenation for PHP",
+            "homepage": "http://github.com/heiglandreas/Org_Heigl_Hyphenator",
+            "keywords": [
+                "hyphenate",
+                "hyphenation"
+            ],
+            "time": "2013-05-16 19:30:56"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "platform": [],
+    "platform-dev": []
+}
