@@ -128,7 +128,8 @@ if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers
     <hr>
 
     <footer>
-        <p>&copy; JoliTypo is brougth to you by <a href="http://jolicode.com">JoliCode</a> - MIT License</p>
+        <p>&copy; <a href="https://github.com/jolicode/JoliTypo">JoliTypo</a> is brougth to you by <a href="http://jolicode.com">JoliCode</a>.</p>
+        <p>This is a PHP script parsing your HTML and trying to fix commons typography issues, it's open-source and under MIT License.</p>
     </footer>
 </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
