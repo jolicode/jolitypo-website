@@ -18,10 +18,12 @@ $fixers = array(
 );
 
 $selectedFilters = array('Dash', 'Dimension', 'Ellipsis', 'EnglishQuotes', 'CurlyQuote', 'Trademark');
+$toFixContent = "";
 $fixedContent = "";
 
 if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers'])) {
     $selectedFilters = array_keys(array_intersect_key(array_filter($_POST['fixers']), $fixers));
+    $toFixContent    = $_POST['content'];
 
     $fixer = new Fixer($selectedFilters);
     $fixedContent = $fixer->fix($_POST['content']);
@@ -35,6 +37,7 @@ if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers
     <title>JoliTypo demo - Micro-typography fixer for HTML contents</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/highlight/default.css">
     <style>
         body {
             padding-top: 50px;
@@ -93,7 +96,7 @@ if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers
                 <div class="form-group">
                     <textarea class="form-control" name="content"
                               placeholder="<p>My old school HTML content</p>"
-                              rows="<?php echo count($fixers) * 2; ?>"></textarea>
+                              rows="<?php echo count($fixers) * 2; ?>"><?php echo $toFixContent; ?></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">FIX YOUR CONTENT MICROTYPOGRAPHY NOW!!</button>
@@ -105,7 +108,7 @@ if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers
         <div class="col-md-12">
             <h2>Result</h2>
             <?php if (!empty($fixedContent)): ?>
-                <?php echo $fixedContent; ?>
+                <pre><code class="html"><?php echo htmlentities($fixedContent); ?></code></pre>
             <?php else: ?>
                 <p>Submit some content, and be amazed!</p>
             <?php endif; ?>
@@ -120,8 +123,9 @@ if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers
 </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 
+<script src="js/vendor/highlight.pack.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
-
+<script>hljs.initHighlightingOnLoad();</script>
 <script src="js/main.js"></script>
 </body>
 </html>
