@@ -1,23 +1,24 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "32b6216fd1ee59c07a62ebf559ec6fe0",
+    "hash": "37d3e2ee867a1957daec4c6ccfe65443",
+    "content-hash": "3747109aee67d4197e8fab407039cfb9",
     "packages": [
         {
             "name": "jolicode/jolitypo",
-            "version": "v0.1.4",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jolicode/JoliTypo.git",
-                "reference": "8539ddb6a9bf0ca710d033a29d1030bbc423fb76"
+                "reference": "4e8350f89828540254996e6469fbb0261bdd79d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/8539ddb6a9bf0ca710d033a29d1030bbc423fb76",
-                "reference": "8539ddb6a9bf0ca710d033a29d1030bbc423fb76",
+                "url": "https://api.github.com/repos/jolicode/JoliTypo/zipball/4e8350f89828540254996e6469fbb0261bdd79d0",
+                "reference": "4e8350f89828540254996e6469fbb0261bdd79d0",
                 "shasum": ""
             },
             "require": {
@@ -29,12 +30,10 @@
             "conflict": {
                 "ext-apc": "3.1.11"
             },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1.x-dev"
-                }
+            "require-dev": {
+                "fabpot/php-cs-fixer": "^1.11"
             },
+            "type": "library",
             "autoload": {
                 "psr-0": {
                     "JoliTypo": "src/"
@@ -60,7 +59,7 @@
                 "smartquote",
                 "typography"
             ],
-            "time": "2014-06-17 13:08:26"
+            "time": "2015-12-13 18:50:02"
         },
         {
             "name": "org_heigl/hyphenator",
@@ -111,6 +110,7 @@
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }

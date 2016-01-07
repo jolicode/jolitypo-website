@@ -1,7 +1,7 @@
 {
     "name": "damienalexandre/jolitypo-website",
     "require": {
-        "jolicode/jolitypo": "~0.1"
+        "jolicode/jolitypo": "~1.0"
     },
     "authors": [
         {

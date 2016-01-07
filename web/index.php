@@ -8,24 +8,28 @@ $fixers = array(
     'Dash' => 'Fix ndash &amp; mdash',
     'Dimension' => 'Replace the letter x between numbers',
     'Ellipsis' => 'Fix the ...',
-    'EnglishQuotes' => '“ Smart English ”',
-    'FrenchQuotes' => '« Smart French »',
-    'GermanQuotes' => '„ Smarth German “',
+    'SmartQuotes' => '“ Smart Quote for the selected language ”',
     'FrenchNoBreakSpace' => 'Set non breaking spaces before `:`, `;`, `!` and `?`',
+    'NoSpaceBeforeComma' => 'Remove spaces before `,`',
     'Hyphen' => 'Automatic word-hyphenation',
     'CurlyQuote' => 'Replace straight quotes by curly one’s',
     'Trademark' => 'Handle symbol like ™ © ®',
+    'Numeric' => 'Add non breaking spaces for units',
 );
 
-$selectedFilters = array('Dash', 'Dimension', 'Ellipsis', 'EnglishQuotes', 'CurlyQuote', 'Trademark');
+$locales = array('en_GB', 'fr', 'af_ZA', 'ca', 'da_DK', 'de_AT', 'de_CH', 'de_DE', 'en_UK', 'et_EE', 'hr_HR',
+    'hu_HU', 'it_IT', 'lt_LT', 'nb_NO', 'nn_NO', 'nl_NL', 'pl_PL', 'pt_BR', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SI', 'sr', 'zu_ZA');
+$selectedFilters = array('Ellipsis', 'Dimension', 'Numeric', 'Dash', 'SmartQuotes', 'NoSpaceBeforeComma', 'CurlyQuote', 'Hyphen', 'Trademark');
 $toFixContent = "";
 $fixedContent = "";
 
 if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers'])) {
     $selectedFilters = array_keys(array_intersect_key(array_filter($_POST['fixers']), $fixers));
-    $toFixContent    = $_POST['content'];
+    $selectedLocale = in_array($_POST['locale'], $locales) ? $_POST['locale'] : $locales[0];
+    $toFixContent = $_POST['content'];
 
     $fixer = new Fixer($selectedFilters);
+    $fixer->setLocale($selectedLocale);
     $fixedContent = $fixer->fix($_POST['content']);
 }
 
@@ -76,18 +80,31 @@ if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers
         <form role="form" method="post" action="">
             <div class="col-md-4">
                 <h2>Fixers</h2>
-                <?php foreach ($fixers as $fixerName => $help): ?>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="1"
-                                   <?php if (in_array($fixerName, $selectedFilters)): ?>
-                                       checked="checked"
-                                   <?php endif; ?>
-                                   name="fixers[<?php echo $fixerName; ?>]"> <?php echo $fixerName; ?>
-                        </label>
-                        <p class="help-block"><?php echo $help; ?></p>
-                    </div>
-                <?php endforeach; ?>
+
+                <div class="form-group">
+                    <label for="locale">Locale (for SmartQuote and Hyphen)</label>
+                    <select id="locale" name="locale" class="form-control">
+                        <?php foreach ($locales as $locale): ?>
+                            <option value="<?php echo $locale; ?>"><?php echo $locale; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="locale">Fixers to apply</label>
+                    <?php foreach ($fixers as $fixerName => $help): ?>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="1"
+                                       <?php if (in_array($fixerName, $selectedFilters)): ?>
+                                           checked="checked"
+                                       <?php endif; ?>
+                                       name="fixers[<?php echo $fixerName; ?>]"> <?php echo $fixerName; ?>
+                            </label>
+                            <p class="help-block"><?php echo $help; ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
             <div class="col-md-8">
@@ -128,7 +145,8 @@ if (isset($_POST['content']) && isset($_POST['fixers']) && !empty($_POST['fixers
     <hr>
 
     <footer>
-        <p>&copy; <a href="https://github.com/jolicode/JoliTypo">JoliTypo</a> is brougth to you by <a href="http://jolicode.com">JoliCode</a>.</p>
+        <!-- Thx Pascal! -->
+        <p>&copy; <a href="https://github.com/jolicode/JoliTypo">JoliTypo</a> is brought to you by <a href="http://jolicode.com">JoliCode</a>.</p>
         <p>This is a PHP script parsing your HTML and trying to fix commons typography issues, it's open-source and under MIT License.</p>
     </footer>
 </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
