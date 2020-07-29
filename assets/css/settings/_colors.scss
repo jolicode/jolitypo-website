@@ -1,0 +1,11 @@
+@import "node_modules/atomic-builder/scss/settings/colors";
+
+$colors: map-merge(
+  (
+          'try': #37C1FF,
+          'docs': #8337FF,
+          'used_by': #37FF63,
+          'glossary': #FF9737,
+  ),
+  $colors
+);

@@ -1,0 +1,25 @@
+<section class="u-mb(lg)">
+    <h2 class="u-c(try) u-mb(base)">TRY IT</h2>
+    {{ form_start(form) }}
+    <div class="error">
+        {{ form_errors(form) }}
+    </div>
+    <div class="o-grid">
+        <div class="o-grid__col o-grid__col--5">
+            <div class="select u-mb(base)">
+                {{ form_row(form.locales, {'attr': {'class': 'locale_field u-d(block) u-c(try)'}}) }}
+            </div>
+
+            <div class="box">
+                {{ form_row(form.fixers, {'attr': {'class': 'fixer_fields u-d(flex) u-fxw(wrap) u-ac(space-between)'}}) }}
+            </div>
+        </div>
+        <div class="o-grid__col o-grid__col--6 o-grid__col--push-1">
+            {{ form_row(form.toFixContent, {'attr': {'class': 'to_fix_content_field'}}) }}
+            {{ form_row(form.submit, {'attr': {'class': 'u-w(100) c-button'}}) }}
+            {{ form_end(form) }}
+            <div class="js-fixed-content fixed-content" data-is-fixed="{{ fixedContent }}" data-is-to-fix="{{ toFixContent }}"><pre><code>{{ fixedContent }}</code></pre></div>
+            <div class="diff"><pre ><code id="js-display"></code></pre></div>
+        </div>
+    </div>
+</section>

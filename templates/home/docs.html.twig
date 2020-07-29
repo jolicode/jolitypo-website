@@ -1,0 +1,16 @@
+<section class="u-mb(lg)">
+    <h2 class="u-c(docs)">DOCS</h2>
+    <h3>Fixers</h3>
+
+    <div class="o-grid u-pt(base)">
+        {% for fixer in fixers %}
+        <div class="o-grid__col o-grid__col--7">
+            <p class="c-fixer__name">{{ fixer.name }}</p>
+            <p class="c-fixer__description">{{ fixer.description }}</p>
+        </div>
+        <div class="o-grid__col o-grid__col--push-1 o-grid__col--4">
+            <img src="https://picsum.photos/300/200" alt="">
+        </div>
+        {% endfor %}
+    </div>
+</section>

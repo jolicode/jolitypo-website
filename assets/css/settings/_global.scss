@@ -1,0 +1,22 @@
+@import 'node_modules/atomic-builder/scss/settings/global';
+
+$spacers: map-merge(
+                (
+                        'md': 4.8rem,
+                        'lg': 7.2rem,
+                ),
+                $spacers
+);
+
+$breakpoints: map-merge(
+  (
+    'phone': 47.9375em,
+    'tablet': 64em,
+  ),
+  $breakpoints
+);
+
+$enable-responsive-flex: true;
+$enable-responsive-display: true;
+$enable-responsive-sizing: true;
+$enable-responsive-spacing: true;
