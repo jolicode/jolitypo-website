@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block form_errors -%}
+  {%- if errors is defined -%}
+    {%- for error in errors -%}
+      <div class="error-message u-c(error) u-fz(h5) u-bor(error) u-d(inline-block) u-py(half) u-px(base) u-br(5) u-mb(double)">{{ error.message }}</div>
+    {%- endfor -%}
+  {%- endif %}
+{%- endblock form_errors %}
+
+{% block body %}
+  <div class="o-container u-py(double)">
+
+    {# GitHub ribbon taken from https://github.com/tholman/github-corners #}
+    <a href="https://github.com/jolicode/JoliTypo" class="github-corner" aria-label="View source on GitHub">
+      <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: fixed; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header>
+      <h1 class="u-fz(h1) u-ff(courgette) u-ta(center) u-c(orange)">JoliTypo Demo</h1>
+      <div class="subtitle u-fz(h5) u-ta(center)">
+        This is a sample page to let you try out our microtypography fixer.
+      </div>
+      <div class="subtitle u-fz(h5) u-ta(center) u-bb(orange) u-pb(base) u-w(70) u-mx(auto)">
+        Learn more at GitHub : <a href="https://github.com/jolicode/JoliTypo" class="u-c(orange) u-tc(none) subtitle__link">See repository</a>.
+      </div>
+    </header>
+
+    <div class="help u-ta(center) u-mt(double) u-fz(help)">
+      <p class="">You may try here the <a href="https://jolicode.com/" class="u-c(orange) u-tc(none)">JoliCode</a> Microtypography Fixer and see how it works.</p>
+      <p class="">Simply select a locale and some fixers, paste in the text or HTML you want to see fixed and profit !</p>
+    </div>
+
+    {{ form_start(form, {
+      'attr': {'class': 'form js-form u-ta(center)'},
+      'action': '#result'  
+    }) }}
+
+      <div class="form__part u-my(double)">
+        <h3 class="u-fz(h3) u-ff(courgette) u-c(darkgrey) u-ta(center) u-my(double)">Select your locale</h3>
+
+        {{ form_row(form.locales, {
+          'attr': {'class': 'u-p(half) u-bgc(orangegradient) u-br(5) u-bor(none) u-c(white) u-fz(input) u-cur(pointer)'}
+        }) }}
+      </div>
+
+      <div class="form__part u-my(double)">
+        <h3 class="u-fz(h3) u-ff(courgette) u-c(darkgrey) u-ta(center) u-my(double)">Choose the fixes you want to apply</h3>
+
+        {{ form_errors(form.fixers) }}
+
+        <div class="form__fixes-wrapper o-grid o-grid--2 o-grid--5@tablet-up
+        u-jc(center) u-ac(stretch)">
+          {% for fixer in form.fixers %}
+            <div class="form__fixes-checkbox u-my(half) o-grid__col">
+              <label for="typo_fixer_fixers_{{ fixer.vars.name }}">
+                <div class="form__fixes-checkbox-inner js-box
+                u-bgc(orangegradient) u-p(half) u-c(white) u-h(100) u-fz(input) u-br(5)
+                u-d(flex) u-fxd(column) u-jc(space-between) u-ai(stretch) u-cur(pointer)">
+                
+                  <div class="form__label-name u-bb(white)">{{ fixer.vars.value }}</div>
+                  <div class="form__label-desc u-pt(half)">{{ fixer.vars.label }}</div>
+                  {{ form_widget(fixer, {
+                    'attr': {'class': 'js-checkbox u-my(half) u-as(center)'}
+                  }) }}
+
+                </div>
+              </label>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+      <button data-allchecked="true" class ="js-check-all form__check-all
+      u-br(5) u-c(white) u-bgc(orangegradient) u-px(base) u-py(semihalf) u-bor(none) u-cur(pointer) u-fz(input)">Uncheck all</button>
+
+      <div class="form__part u-my(double)">
+        <h3 class="u-fz(h3) u-ff(courgette) u-c(darkgrey) u-ta(center) u-my(double)">Paste in your text or HTML</h3>
+
+        {{ form_row(form.content, {
+          'attr': {'class': 'js-content u-w(100) u-vh(45) u-bor(orange) u-br(5)'}
+        }) }}
+      </div>
+
+      <button type="submit" name="submit" class="form__submit u-br(5) u-c(white) u-bgc(orangegradient) u-px(base) u-py(semihalf) u-bor(none) u-cur(pointer) u-fz(input)">Behold Typo Madness !</button>
+
+      {% if fixedContent is defined %}
+        <div class="form__part u-my(double)" id="result">
+          <h3 class="u-fz(h3) u-ff(courgette) u-c(darkgrey) u-ta(center) u-my(double)">And be amazed !</h3>
+
+          <div class="u-mb(doubledouble) u-pb(double) u-fz(help)"><p class="u-fz(help-title)">You may see your result in 3 different formats :</p>
+            <ul>
+              <li>
+                <span class="u-c(orange)">Client version</span> : How the text will be in the browser.
+              </li>
+              <li>
+                <span class="u-c(orange)">HTML version</span> : How the text will be in HTML. This is what the Fixer actually did.
+              </li>
+              <li>
+                <span class="u-c(orange)">PHP config</span> : If you want to use what you did here in your project, copy and paste this to your code !
+              </li>
+            </ul>
+          </div>
+
+          <div class="form__result-wrapper u-p(relative) u-vh(45)">
+            <div class="form__result-buttons u-d(absolute) u-tl(0) u-tt(y-100) u-ta(left)">
+              <div class="form__result-button form__result-button-client u-d(inline-block) u-c(darkgrey) u-cur(pointer) u-brt(5) u-c(white) u-bgc(orangegradient) u-px(half) u-py(doublehalf)">Client version</div>
+              <div class="form__result-button form__result-button-html u-d(inline-block) u-cur(pointer) u-brt(5) u-c(white) u-bgc(orangegradient) u-px(half) u-py(doublehalf)">HTML version</div>
+              <div class="form__result-button form__result-button-config u-d(inline-block) u-cur(pointer) u-brt(5) u-c(white) u-bgc(orangegradient) u-px(half) u-py(doublehalf)">PHP Config</div>
+            </div>
+            {# We use textareas to prevent XSS injection #}
+            <textarea class="form__result form__result-client visible-result u-w(100) u-p(half) u-vh(45) u-bor(orange) u-br(5) u-p(absolute) u-trbl(0) u-bgc(white)" disabled>{{ fixedContent|raw }}</textarea>
+            <textarea class="form__result form__result-html hidden-result u-w(100) u-p(half) u-vh(45) u-bor(orange) u-br(5) u-p(absolute) u-trbl(0) u-bgc(white)" disabled>{{ fixedContent }}</textarea>
+            <code class="form__result form__result-config hidden-result u-w(100) u-vh(45) u-bor(orange) u-br(5) u-p(absolute) u-trbl(0) u-bgc(white) u-over(auto) u-cur(text) u-ta(left) u-p(half)" disabled><pre>
+<span class="u-c(var)">$fixer</span> = <span class="u-c(new)">new</span> <span class="u-c(class)">Fixer</span>([
+  {% for fixer in form.fixers.vars.value %}
+    {{ fixer }},
+  {% endfor %}
+]);
+<span class="u-c(var)">$fixer</span><span class="u-c(func)">->setLocale</span>({{ form.locales.vars.value }});
+<span class="u-c(var)">$result</span> = <span class="u-c(var)">$fixer</span><span class="u-c(func)">->fix</span>(
+{{ form.content.vars.value }}
+);
+            </pre></code>
+          </div>
+        </div>
+      {% endif %}
+    {{ form_end(form) }}
+
+    <footer class="u-ta(center) u-mt(double)">
+      <p>© <a href="https://github.com/jolicode/JoliTypo" class="u-c(orange) u-tc(none)">JoliTypo</a> is brought to you by <a href="https://jolicode.com/" class="u-c(orange) u-tc(none)">JoliCode.</a></p>
+      <p>This is a PHP script parsing your HTML and trying to fix commons typography issues, it's open-source and under MIT License.</p>
+    </footer>
+  </div>
+
+{% endblock %}
