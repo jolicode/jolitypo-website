@@ -35,13 +35,13 @@ class HomepageController extends AbstractController
             $fixer = new Fixer($data['fixers']);
             $fixer->setLocale($data['locales']);
 
-            return $this->render('main/homepage.html.twig', [
+            return $this->render('homepage/homepage.html.twig', [
                 'form' => $form->createView(),
                 'fixedContent' => $fixer->fix($data['content']),
             ]);
         }
 
-        return $this->render('main/homepage.html.twig', [
+        return $this->render('homepage/homepage.html.twig', [
             'form' => $form->createView(),
         ]);
     }
