@@ -1,9 +1,11 @@
 'use strict';
 
 import './styles/app.scss';
-
 const allBoxes = document.getElementsByClassName('js-box');
 allBoxes.forEach(box => box.addEventListener('click', checkIfAllOrNoneChecked));
+const checkButton = document.getElementsByClassName('js-check-all')[0];
+const allCheckboxes = document.getElementsByClassName('js-checkbox');
+checkButton.addEventListener('click', checkAction);
 
 // If any checkbox is checked, set the button to uncheck all
 // If no checkbox is checked, set the button to check all
@@ -16,10 +18,6 @@ function checkIfAllOrNoneChecked () {
 
   return setCheckButtonFalse();
 }
-
-const checkButton = document.getElementsByClassName('js-check-all')[0];
-const allCheckboxes = document.getElementsByClassName('js-checkbox');
-checkButton.addEventListener('click', checkAction);
 
 // Checks or unchecks all checkboxes
 function checkAction (e) {
