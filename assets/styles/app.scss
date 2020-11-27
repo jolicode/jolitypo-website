@@ -1,0 +1,292 @@
+$colors: (
+    'background': rgb(250, 250, 250),
+    'orange': rgb(253, 175, 74),
+    'darkgrey': rgb(68, 68, 68),
+    'error': rgb(240, 38, 38),
+    'new': rgb(177, 0, 0),
+    'class': rgb(0, 53, 197),
+    'func': rgb(250, 152, 25),
+    'var': rgb(4, 167, 99),
+);
+
+$font-sizes: (
+    'help-title': 2.4rem,
+    'help': 2.1rem,
+    'input': 1.8rem
+);
+
+$font-weights: (
+    'bold': 600
+);
+
+$spacers: (
+    'doubledouble': 7rem,
+    'double': 4.8rem,
+    'semihalf': 1.8rem,
+    'half': 1.2rem,
+    'doublehalf': 0.6rem,
+    'list': 20rem
+);
+
+@font-face {
+    font-family: 'Courgette';
+    src: url('/public/fonts/Courgette-Regular.ttf')
+}
+
+@mixin orange-gradient() {
+    background: -webkit-linear-gradient(35deg, rgba(253,175,74,1) 50%, rgba(253,182,74,1) 0%);
+    background: -moz-linear-gradient(35deg, rgba(253,175,74,1) 50%, rgba(253,182,74,1) 0%);
+    background: -ms-linear-gradient(35deg, rgba(253,175,74,1) 50%, rgba(253,182,74,1) 0%);
+    background: -o-linear-gradient(35deg, rgba(253,175,74,1) 50%, rgba(253,182,74,1) 0%);
+    background: linear-gradient(35deg, rgba(253,175,74,1) 50%, rgba(253,182,74,1) 0%);
+};
+
+@mixin white-gradient() {
+    background: -webkit-linear-gradient(35deg, rgba(240,240,240,1) 50%, rgba(250,250,250,1) 50%);
+    background: -moz-linear-gradient(35deg, rgba(240,240,240,1) 50%, rgba(250,250,250,1) 50%);
+    background: -ms-linear-gradient(35deg, rgba(240,240,240,1) 50%, rgba(250,250,250,1) 50%);
+    background: -o-linear-gradient(35deg, rgba(240,240,240,1) 50%, rgba(250,250,250,1) 50%);
+    background: linear-gradient(35deg, rgba(240,240,240,1) 50%, rgba(250,250,250,1) 50%);
+}
+
+// Sizing
+
+.u-w\(70\) {
+    width: 70%;
+}
+
+.u-vh\(45\) {
+    height: 45vh;
+}
+
+// Text
+
+.u-ff\(courgette\) {
+    font-family: 'Courgette';
+}
+
+.u-tc\(none\) {
+    text-decoration: none;
+}
+
+// Spacing
+
+.u-my\(double\) {
+    margin-top: var(--spacer-double);
+    margin-bottom: var(--spacer-double);
+}
+
+.u-my\(half\) {
+    margin-top: var(--spacer-half);
+    margin-bottom: var(--spacer-half);
+}
+
+.u-mb\(double\) {
+    margin-bottom: var(--spacer-double);
+}
+
+.u-p\(half\) {
+    padding: var(--spacer-half);
+}
+
+.u-pt\(half\) {
+    padding-top: var(--spacer-half);
+}
+
+.u-py\(semihalf\) {
+    padding-top: var(--spacer-semihalf);
+    padding-bottom: var(--spacer-semihalf);
+}
+
+.u-py\(doublehalf\) {
+    padding-top: var(--spacer-doublehalf);
+    padding-bottom: var(--spacer-doublehalf);
+}
+
+// Borders
+
+.u-br\(5\) {
+    border-radius: 5px;
+}
+
+.u-brt\(5\) {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.u-bor\(none\) {
+    border: 0px solid transparent;
+}
+
+.u-bor\(orange\) {
+    border: 2px solid var(--color-orange);
+}
+
+.u-bor\(error\) {
+    border: 2px solid var(--color-error);
+}
+
+.u-bb\(orange\) {
+    border-bottom: var(--color-orange) solid 1.5px;
+}
+
+.u-bb\(white\) {
+    border-bottom: var(--color-white) solid 1px;
+}
+
+// Backgrounds
+
+.u-bgc\(whitegradient\) {
+    @include white-gradient();
+}
+
+.u-bgc\(orangegradient\) {
+    @include orange-gradient();
+}
+
+// Colors
+
+.u-c\(darkgrey\) {
+    color: var(--color-darkgrey);
+}
+
+// List
+
+ul {
+    list-style-type: none;
+}
+
+// Form
+
+select#typo_fixer_locales {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60rem;
+    height: 5rem;
+}
+
+option {
+    color: var(--color-black);
+}
+
+input[type="checkbox"] {
+    filter: grayscale(1);
+    height: 2.5rem; width: 2.5rem;
+}
+
+textarea.form__result {
+    background: var(--color-white);
+    cursor: text;
+}
+
+// Position
+
+.u-p\(absolute\) {
+    position: absolute;
+}
+
+.u-p\(relative\) {
+    position: relative;
+}
+
+.u-trbl\(0\) {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.u-tl\(0\) {
+    top: 0;
+    left: 0;
+}
+
+// Transform
+
+.u-tt\(y-100\) {
+    transform: translateY(-100%);
+}
+
+// Animations
+
+.subtitle__link:hover {
+    text-decoration: underline;
+}
+
+.form__submit,
+.form__result-button,
+.form__fixes-checkbox-inner,
+.form__check-all {
+    position: relative;
+}
+
+.form__submit:before,
+.form__result-button:before,
+.form__fixes-checkbox-inner:before,
+.form__check-all:before {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    transition: opacity 0.5s;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.form__submit:hover::before,
+.form__result-button:hover::before,
+.form__fixes-checkbox-inner:hover::before,
+.form__check-all:hover::before {
+    opacity: 1;
+}
+
+// Others
+
+.visible-result {
+    z-index: 2;
+}
+
+.u-cur\(pointer\) {
+    cursor: pointer;
+}
+
+.u-cur\(text\) {
+    cursor: text!important;
+}
+
+.u-over\(auto\) {
+    overflow: auto;
+}
+
+// Settings (required)
+@import 'node_modules/atomic-builder/scss/settings/colors';
+@import 'node_modules/atomic-builder/scss/settings/global';
+
+// Tools (required)
+@import 'node_modules/atomic-builder/scss/tools/functions';
+@import 'node_modules/atomic-builder/scss/tools/mixins';
+
+// Generic (optional)
+@import 'node_modules/atomic-builder/scss/generic/normalize';
+@import 'node_modules/atomic-builder/scss/generic/box-sizing';
+@import 'node_modules/atomic-builder/scss/generic/reset';
+@import 'node_modules/atomic-builder/scss/generic/shared';
+
+// Elements (optional)
+@import 'node_modules/atomic-builder/scss/elements/root';
+@import 'node_modules/atomic-builder/scss/elements/page';
+
+// Objects (optional)
+@import 'node_modules/atomic-builder/scss/objects/grid';
+@import 'node_modules/atomic-builder/scss/objects/container';
+
+// Utilities (optional)
+@import 'node_modules/atomic-builder/scss/utilities/position';
+@import 'node_modules/atomic-builder/scss/utilities/display';
+@import 'node_modules/atomic-builder/scss/utilities/flex';
+@import 'node_modules/atomic-builder/scss/utilities/alignment';
+@import 'node_modules/atomic-builder/scss/utilities/sizing';
+@import 'node_modules/atomic-builder/scss/utilities/spacing';
+@import 'node_modules/atomic-builder/scss/utilities/colors';
+@import 'node_modules/atomic-builder/scss/utilities/text';
+
