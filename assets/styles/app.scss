@@ -15,17 +15,12 @@ $font-sizes: (
     'input': 1.8rem
 );
 
-$font-weights: (
-    'bold': 600
-);
-
 $spacers: (
     'doubledouble': 7rem,
     'double': 4.8rem,
     'semihalf': 1.8rem,
     'half': 1.2rem,
     'doublehalf': 0.6rem,
-    'list': 20rem
 );
 
 @font-face {
@@ -210,7 +205,7 @@ textarea.form__result {
 
 // Animations
 
-.subtitle__link:hover {
+.link:hover {
     text-decoration: underline;
 }
 
