@@ -1,15 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% form_theme form _self %}
-{% form_theme form.fixers 'homepage/fixers.html.twig' %}
-
-{% block form_errors -%}
-  {%- if errors is defined -%}
-    {%- for error in errors -%}
-      <div class="error-message u-c(error) u-fz(h5) u-bor(error) u-d(inline-block) u-py(half) u-px(base) u-br(5) u-mb(double)">{{ error.message }}</div>
-    {%- endfor -%}
-  {%- endif %}
-{%- endblock form_errors %}
+{% form_theme form 'homepage/fixers.html.twig' %}
 
 {% block body %}
   <div class="o-container u-py(double)">
