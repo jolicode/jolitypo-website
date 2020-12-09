@@ -133,13 +133,14 @@
             <textarea class="form__result form__result-html hidden-result u-w(100) u-p(half) u-vh(45) u-bor(orange) u-br(5) u-p(absolute) u-trbl(0) u-bgc(white)" disabled>{{ fixedContent }}</textarea>
             <code class="form__result form__result-config hidden-result u-w(100) u-vh(45) u-bor(orange) u-br(5) u-p(absolute) u-trbl(0) u-bgc(white) u-over(auto) u-cur(text) u-ta(left) u-p(half)" disabled><pre>
 <span class="u-c(var)">$fixer</span> = <span class="u-c(new)">new</span> <span class="u-c(class)">Fixer</span>([
-  {% for fixer in form.fixers.vars.value %}
-    {{ fixer }},
-  {% endfor %}
+{% for fixer in form.fixers.vars.value %}
+  '{{ fixer }}',
+{% endfor %}
 ]);
-<span class="u-c(var)">$fixer</span><span class="u-c(func)">->setLocale</span>({{ form.locales.vars.value }});
-<span class="u-c(var)">$result</span> = <span class="u-c(var)">$fixer</span><span class="u-c(func)">->fix</span>(
+<span class="u-c(var)">$fixer</span><span class="u-c(func)">->setLocale</span>('{{ form.locales.vars.value }}');
+<span class="u-c(var)">$result</span> = <span class="u-c(var)">$fixer</span><span class="u-c(func)">->fix</span>(&lt;&lt;&lt;HTML
 {{ form.content.vars.value }}
+HTML
 );
             </pre></code>
           </div>
