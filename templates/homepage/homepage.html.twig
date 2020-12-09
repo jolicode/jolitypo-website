@@ -2,6 +2,32 @@
 
 {% form_theme form _self %}
 
+{% block _typo_fixer_fixers_entry_row %}
+    <div class="form__fixes-checkbox u-my(half) o-grid__col">
+        {{ block('form_errors') }}
+        {{ block('_typo_fixer_fixers_entry_label') }}
+    </div>
+{% endblock %}
+
+{% block _typo_fixer_fixers_entry_label %}
+    <label for="typo_fixers_{{ name }}">
+        <div class="form__fixes-checkbox-inner js-box
+        u-bgc(orangegradient) u-p(half) u-c(white) u-h(100) u-fz(input) u-br(5)
+        u-d(flex) u-fxd(column) u-jc(space-between) u-ai(stretch) u-cur(pointer)">
+
+            <div class="form__label-name u-bb(white)">{{ value }}</div>
+            <div class="form__label-desc u-pt(half)">{{ label }}</div>
+
+            {{ block('_typo_fixer_fixers_entry_widget') }}
+
+        </div>
+    </label>
+{% endblock %}
+
+{% block _typo_fixer_fixers_entry_widget %}
+    <input type="checkbox" class="js-checkbox u-my(half) u-as(center)" id="typo_fixers_{{ name }}" value="{{ value }}" name="typo_fixer[fixers][]"{% if checked %} checked="checked"{% endif %}>
+{% endblock %}
+
 {% block form_errors -%}
   {%- if errors is defined -%}
     {%- for error in errors -%}
@@ -9,6 +35,7 @@
     {%- endfor -%}
   {%- endif %}
 {%- endblock form_errors %}
+
 
 {% block body %}
   <div class="o-container u-py(double)">
@@ -29,12 +56,12 @@
         This is a sample page to let you try out our microtypography fixer.
       </div>
       <div class="subtitle u-fz(h5) u-ta(center) u-bb(orange) u-pb(base) u-w(70) u-mx(auto)">
-        Learn more at GitHub : <a href="https://github.com/jolicode/JoliTypo" class="u-c(orange) u-tc(none) subtitle__link">See repository</a>.
+        Learn more at GitHub : <a href="https://github.com/jolicode/JoliTypo" class="u-c(orange) u-tc(none) link">See repository</a>.
       </div>
     </header>
 
     <div class="help u-ta(center) u-mt(double) u-fz(help)">
-      <p class="">You may try here the <a href="https://jolicode.com/" class="u-c(orange) u-tc(none)">JoliCode</a> Microtypography Fixer and see how it works.</p>
+      <p class="">You may try here the <a href="https://jolicode.com/" class="u-c(orange) u-tc(none) link">JoliCode</a> Microtypography Fixer and see how it works.</p>
       <p class="">Simply select a locale and some fixers, paste in the text or HTML you want to see fixed and profit !</p>
     </div>
 
@@ -59,21 +86,7 @@
         <div class="form__fixes-wrapper o-grid o-grid--2 o-grid--5@tablet-up
         u-jc(center) u-ac(stretch)">
           {% for fixer in form.fixers %}
-            <div class="form__fixes-checkbox u-my(half) o-grid__col">
-              <label for="typo_fixer_fixers_{{ fixer.vars.name }}">
-                <div class="form__fixes-checkbox-inner js-box
-                u-bgc(orangegradient) u-p(half) u-c(white) u-h(100) u-fz(input) u-br(5)
-                u-d(flex) u-fxd(column) u-jc(space-between) u-ai(stretch) u-cur(pointer)">
-                
-                  <div class="form__label-name u-bb(white)">{{ fixer.vars.value }}</div>
-                  <div class="form__label-desc u-pt(half)">{{ fixer.vars.label }}</div>
-                  {{ form_widget(fixer, {
-                    'attr': {'class': 'js-checkbox u-my(half) u-as(center)'}
-                  }) }}
-
-                </div>
-              </label>
-            </div>
+            {{ form_row(fixer) }}
           {% endfor %}
         </div>
       </div>
@@ -135,7 +148,7 @@
     {{ form_end(form) }}
 
     <footer class="u-ta(center) u-mt(double)">
-      <p>© <a href="https://github.com/jolicode/JoliTypo" class="u-c(orange) u-tc(none)">JoliTypo</a> is brought to you by <a href="https://jolicode.com/" class="u-c(orange) u-tc(none)">JoliCode.</a></p>
+      <p>© <a href="https://github.com/jolicode/JoliTypo" class="u-c(orange) u-tc(none) link">JoliTypo</a> is brought to you by <a href="https://jolicode.com/" class="u-c(orange) u-tc(none) link">JoliCode.</a></p>
       <p>This is a PHP script parsing your HTML and trying to fix commons typography issues, it's open-source and under MIT License.</p>
     </footer>
   </div>
