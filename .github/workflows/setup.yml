@@ -1,0 +1,37 @@
+name: Install project and run tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup PHP 7.4
+      uses: shivammathur/setup-php@2.13.0
+      with:
+        php-version: '7.4'
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.4.0
+      with:
+        cache: 'yarn'
+
+    - run: yarn install
+
+    - run: yarn heroku-postbuild
+
+    - name: Run tests
+      run: vendor/bin/simple-phpunit
