@@ -24,7 +24,7 @@ class HomepageController extends AbstractController
     public function homepage(Request $request): Response
     {
         $data = [
-            'fixers' => ['Dash', 'Dimension', 'Ellipsis', 'SmartQuotes', 'NoSpaceBeforeComma', 'Hyphen', 'CurlyQuote', 'Trademark', 'Numeric'],
+            'fixers' => ['Dash', 'Dimension', 'Ellipsis', 'SmartQuotes', 'NoSpaceBeforeComma', 'Hyphen', 'CurlyQuote', 'Trademark', 'Unit'],
         ];
 
         $form = $this->createForm(TypoFixerType::class, $data);

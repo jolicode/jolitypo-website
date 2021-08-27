@@ -16,35 +16,40 @@
         "jolicode/jolitypo": "^1.0",
         "sensio/framework-extra-bundle": "^5.6",
         "symfony/apache-pack": "^1.0",
-        "symfony/browser-kit": "5.1.*",
-        "symfony/console": "5.1.*",
-        "symfony/css-selector": "5.1.*",
-        "symfony/dotenv": "5.1.*",
+        "symfony/browser-kit": "5.3.*",
+        "symfony/console": "5.3.*",
+        "symfony/css-selector": "5.3.*",
+        "symfony/dotenv": "5.3.*",
         "symfony/flex": "^1.3.1",
-        "symfony/form": "5.1.*",
-        "symfony/framework-bundle": "5.1.*",
+        "symfony/form": "5.3.*",
+        "symfony/framework-bundle": "5.3.*",
+        "symfony/intl": "5.3.*",
         "symfony/monolog-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^5.1",
-        "symfony/twig-bundle": "5.1.*",
-        "symfony/validator": "5.1.*",
+        "symfony/runtime": "5.3.*",
+        "symfony/twig-bundle": "5.3.*",
+        "symfony/validator": "5.3.*",
         "symfony/webpack-encore-bundle": "^1.8",
-        "symfony/yaml": "5.1.*",
+        "symfony/yaml": "5.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
-        "symfony/debug-bundle": "5.1.*",
-        "symfony/var-dumper": "5.1.*",
-        "symfony/web-profiler-bundle": "5.1.*",
+        "symfony/phpunit-bridge": "^5.3",
+        "symfony/debug-bundle": "5.3.*",
         "symfony/maker-bundle": "^1.23",
-        "symfony/stopwatch": "5.1.*"
+        "symfony/stopwatch": "5.3.*",
+        "symfony/var-dumper": "5.3.*",
+        "symfony/web-profiler-bundle": "5.3.*"
     },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "7.4.3"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -83,7 +88,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "5.1.*"
+            "require": "5.3.*"
         }
     }
 }
