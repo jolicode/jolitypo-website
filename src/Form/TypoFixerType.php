@@ -35,7 +35,7 @@ class TypoFixerType extends AbstractType
         'Hyphen' => 'Automatic word-hyphenation',
         'CurlyQuote' => 'Replace straight quotes by curly one’s',
         'Trademark' => 'Handle symbols like ™ © ®',
-        'Numeric' => 'Add non breaking spaces for units',
+        'Unit' => 'Add non breaking spaces for units',
     ];
 
     public function buildForm(FormBuilderInterface $builder, array $options)
