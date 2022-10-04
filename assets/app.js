@@ -23,7 +23,7 @@ function checkIfAllOrNoneChecked () {
 function checkAction (e) {
   e.preventDefault();
 
-  if (this.dataset.allchecked == 'false') {
+  if (this.dataset.allchecked === 'false') {
     setCheckButtonTrue();
     return allCheckboxes.forEach(checkbox => checkbox.checked = true);
   }
@@ -77,4 +77,14 @@ function toggleResults (e) {
         break;
     }
   }
+}
+
+// If the "fr" language is selected, check the "FrenchNoBreakSpace" filter
+const frenchNoBreakSpaceCheckbox = document.querySelector("input[value='FrenchNoBreakSpace']");
+const languageSelect = document.getElementById('typo_fixer_locales');
+
+languageSelect.addEventListener('change', toggleFrench);
+
+function toggleFrench(e) {
+  frenchNoBreakSpaceCheckbox.checked = e.target.value === 'fr';
 }

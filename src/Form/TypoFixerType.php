@@ -14,9 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\LocaleType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Count;
-use Symfony\Component\Validator\Constraints\Locale;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 class TypoFixerType extends AbstractType
@@ -29,7 +27,7 @@ class TypoFixerType extends AbstractType
         'Dash' => 'Add longer dashes instead of regular ones',
         'Dimension' => 'Real × symbol between numbers',
         'Ellipsis' => 'Real ellipsis rather than three dots',
-        'SmartQuotes' => 'Langage adequate quotes',
+        'SmartQuotes' => 'Language adequate quotes',
         'FrenchNoBreakSpace' => 'Set non breaking spaces before : ; ! ?',
         'NoSpaceBeforeComma' => 'Remove spaces before commas',
         'Hyphen' => 'Automatic word-hyphenation',
