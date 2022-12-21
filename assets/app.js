@@ -2,7 +2,9 @@
 
 import './styles/app.scss';
 const allBoxes = document.getElementsByClassName('js-box');
-allBoxes.forEach(box => box.addEventListener('click', checkIfAllOrNoneChecked));
+for (const box of allBoxes) {
+  box.addEventListener('click', checkIfAllOrNoneChecked);
+}
 const checkButton = document.getElementsByClassName('js-check-all')[0];
 const allCheckboxes = document.getElementsByClassName('js-checkbox');
 checkButton.addEventListener('click', checkAction);
@@ -25,11 +27,17 @@ function checkAction (e) {
 
   if (this.dataset.allchecked === 'false') {
     setCheckButtonTrue();
-    return allCheckboxes.forEach(checkbox => checkbox.checked = true);
+
+    for (const checkbox of allCheckboxes) {
+      checkbox.checked = true;
+    }
   }
 
   setCheckButtonFalse()
-  return allCheckboxes.forEach(checkbox => checkbox.checked = false);
+
+  for (const checkbox of allCheckboxes) {
+    checkbox.checked = false;
+  }
 }
 
 function setCheckButtonTrue () {
