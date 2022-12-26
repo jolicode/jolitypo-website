@@ -31,5 +31,7 @@ jobs:
 
     - run: yarn install
 
+    - run: yarn run build
+
     - name: Run tests
       run: vendor/bin/simple-phpunit
