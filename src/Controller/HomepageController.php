@@ -18,9 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomepageController extends AbstractController
 {
-    /**
-     * @Route("/", name="homepage")
-     */
+    #[Route(path: '/', name: 'homepage')]
     public function homepage(Request $request): Response
     {
         $data = [
