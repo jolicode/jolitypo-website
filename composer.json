@@ -47,9 +47,6 @@
             "*": "dist"
         },
         "sort-packages": true,
-        "platform": {
-            "php": "7.4.3"
-        },
         "allow-plugins": {
             "symfony/flex": true,
             "symfony/runtime": true
