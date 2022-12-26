@@ -31,7 +31,5 @@ jobs:
 
     - run: yarn install
 
-    - run: yarn heroku-postbuild
-
     - name: Run tests
       run: vendor/bin/simple-phpunit
