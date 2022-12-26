@@ -10,7 +10,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "jolicode/jolitypo": "^1.0",
