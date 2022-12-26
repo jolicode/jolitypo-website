@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
-    - name: Setup PHP 7.4
-      uses: shivammathur/setup-php@2.13.0
+    - name: Setup PHP 8.1
+      uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.4'
+        php-version: '8.1'
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -25,13 +25,13 @@ jobs:
       run: composer install --prefer-dist --no-progress
 
     - name: Setup Node.js environment
-      uses: actions/setup-node@v2.4.0
+      uses: actions/setup-node@v3
       with:
         cache: 'yarn'
 
     - run: yarn install
 
-    - run: yarn heroku-postbuild
+    - run: yarn run build
 
     - name: Run tests
       run: vendor/bin/simple-phpunit
