@@ -61,7 +61,7 @@ class TypoFixerType extends AbstractType
             'label' => false,
             'constraints' => [
                 new NotNull([
-                    'message' => 'Unfortunately, we can\'t fix what doesn\'t exist ! Please enter something to fix.',
+                    'message' => "Unfortunately, we can't fix what doesn't exist ! Please enter something to fix.",
                 ]),
             ],
         ]);

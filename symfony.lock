@@ -1,30 +1,15 @@
 {
-    "doctrine/annotations": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
-        },
-        "files": [
-            "config/routes/annotations.yaml"
-        ]
-    },
     "doctrine/inflector": {
         "version": "2.0.3"
     },
     "doctrine/instantiator": {
         "version": "1.4.0"
     },
-    "doctrine/lexer": {
-        "version": "1.2.1"
-    },
     "jolicode/jolitypo": {
-        "version": "1.0",
+        "version": "1.3",
         "recipe": {
             "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
+            "branch": "main",
             "version": "1.0",
             "ref": "e6b3307304d3829993635408736601e5a1d25f72"
         },
@@ -154,18 +139,6 @@
     "sebastian/version": {
         "version": "3.0.2"
     },
-    "sensio/framework-extra-bundle": {
-        "version": "5.2",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.2",
-            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
-        },
-        "files": [
-            "config/packages/sensio_framework_extra.yaml"
-        ]
-    },
     "symfony/apache-pack": {
         "version": "1.0",
         "recipe": {
@@ -194,10 +167,10 @@
         "version": "v5.3.4"
     },
     "symfony/console": {
-        "version": "5.3",
+        "version": "6.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "5.3",
             "ref": "da0c8be8157600ad34f10ff0c9cc91232522e047"
         },
@@ -209,15 +182,15 @@
         "version": "v5.3.4"
     },
     "symfony/debug-bundle": {
-        "version": "4.1",
+        "version": "6.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.1",
-            "ref": "0ce7a032d344fb7b661cd25d31914cd703ad445b"
+            "branch": "main",
+            "version": "5.3",
+            "ref": "5aa8aa48234c8eb6dbdd7b3cd5d791485d2cec4b"
         },
         "files": [
-            "config/packages/dev/debug.yaml"
+            "config/packages/debug.yaml"
         ]
     },
     "symfony/debug-pack": {
@@ -251,12 +224,12 @@
         "version": "v5.3.4"
     },
     "symfony/flex": {
-        "version": "1.0",
+        "version": "2.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "1.0",
-            "ref": "c0eeb50665f0f77226616b6038a9b06c03752d8e"
+            "ref": "146251ae39e06a95be0fe3d13c807bcf3938b172"
         },
         "files": [
             ".env"
@@ -266,12 +239,12 @@
         "version": "v5.3.4"
     },
     "symfony/framework-bundle": {
-        "version": "5.3",
+        "version": "6.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.3",
-            "ref": "772b77cfb5017644547ef7f9364c54e4eb9a6c61"
+            "branch": "main",
+            "version": "6.2",
+            "ref": "af47254c5e4cd543e6af3e4508298ffebbdaddd3"
         },
         "files": [
             "config/packages/cache.yaml",
@@ -294,10 +267,10 @@
         "version": "v5.3.4"
     },
     "symfony/maker-bundle": {
-        "version": "1.0",
+        "version": "1.48",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
@@ -306,30 +279,27 @@
         "version": "v5.3.4"
     },
     "symfony/monolog-bundle": {
-        "version": "3.7",
+        "version": "3.8",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "3.7",
-            "ref": "a7bace7dbc5a7ed5608dbe2165e0774c87175fe6"
+            "ref": "213676c4ec929f046dfde5ea8e97625b81bc0578"
         },
         "files": [
-            "config/packages/dev/monolog.yaml",
-            "config/packages/prod/deprecations.yaml",
-            "config/packages/prod/monolog.yaml",
-            "config/packages/test/monolog.yaml"
+            "config/packages/monolog.yaml"
         ]
     },
     "symfony/options-resolver": {
         "version": "v5.3.4"
     },
     "symfony/phpunit-bridge": {
-        "version": "5.3",
+        "version": "6.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "5.3",
-            "ref": "905679249e7b10f06c572917a9022a72cbfedc04"
+            "ref": "97cb3dc7b0f39c7cfc4b7553504c9d7b7795de96"
         },
         "files": [
             ".env.test",
@@ -360,12 +330,12 @@
         "version": "v5.3.4"
     },
     "symfony/routing": {
-        "version": "5.3",
+        "version": "6.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.3",
-            "ref": "44633353926a0382d7dfb0530922c5c0b30fae11"
+            "branch": "main",
+            "version": "6.2",
+            "ref": "e0a11b4ccb8c9e70b574ff5ad3dfdcd41dec5aa6"
         },
         "files": [
             "config/packages/routing.yaml",
@@ -394,12 +364,12 @@
         "version": "v5.3.4"
     },
     "symfony/twig-bundle": {
-        "version": "5.3",
+        "version": "6.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.3",
-            "ref": "3dd530739a4284e3272274c128dbb7a8140a66f1"
+            "branch": "main",
+            "version": "5.4",
+            "ref": "bb2178c57eee79e6be0b297aa96fc0c0def81387"
         },
         "files": [
             "config/packages/twig.yaml",
@@ -410,15 +380,14 @@
         "version": "v1.0.2"
     },
     "symfony/validator": {
-        "version": "4.3",
+        "version": "6.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.3",
-            "ref": "3eb8df139ec05414489d55b97603c5f6ca0c44cb"
+            "branch": "main",
+            "version": "5.3",
+            "ref": "c32cfd98f714894c4f128bb99aa2530c1227603c"
         },
         "files": [
-            "config/packages/test/validator.yaml",
             "config/packages/validator.yaml"
         ]
     },
@@ -429,26 +398,25 @@
         "version": "v5.3.4"
     },
     "symfony/web-profiler-bundle": {
-        "version": "3.3",
+        "version": "6.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.3",
-            "ref": "6bdfa1a95f6b2e677ab985cd1af2eae35d62e0f6"
+            "branch": "main",
+            "version": "6.1",
+            "ref": "e42b3f0177df239add25373083a564e5ead4e13a"
         },
         "files": [
-            "config/packages/dev/web_profiler.yaml",
-            "config/packages/test/web_profiler.yaml",
-            "config/routes/dev/web_profiler.yaml"
+            "config/packages/web_profiler.yaml",
+            "config/routes/web_profiler.yaml"
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.9",
+        "version": "1.16",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.9",
-            "ref": "5ff15d211e3d4a9216218f6b7f1572262efd74e2"
+            "branch": "main",
+            "version": "1.10",
+            "ref": "f8fc53f1942f76679e9ee3c25fd44865355707b5"
         },
         "files": [
             "assets/app.js",
@@ -456,9 +424,6 @@
             "assets/controllers.json",
             "assets/controllers/hello_controller.js",
             "assets/styles/app.css",
-            "config/packages/assets.yaml",
-            "config/packages/prod/webpack_encore.yaml",
-            "config/packages/test/webpack_encore.yaml",
             "config/packages/webpack_encore.yaml",
             "package.json",
             "webpack.config.js"
@@ -471,7 +436,7 @@
         "version": "1.2.1"
     },
     "twig/extra-bundle": {
-        "version": "v3.3.1"
+        "version": "v3.4.0"
     },
     "twig/twig": {
         "version": "v3.3.2"
