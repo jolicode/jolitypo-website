@@ -31,6 +31,8 @@ function checkAction (e) {
     for (const checkbox of allCheckboxes) {
       checkbox.checked = true;
     }
+
+    return;
   }
 
   setCheckButtonFalse()
